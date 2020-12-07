@@ -1,5 +1,3 @@
-const _ = require('lodash')
-
 module.exports = {
   default: (input) => {
     // Our input is a text split by newline

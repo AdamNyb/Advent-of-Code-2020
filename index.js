@@ -8,25 +8,25 @@ function run () {
   })
 
   let day
-  let letter
-  rl.question('What day are you on?', function (d) {
-      rl.question('a or b?', function (l) {
+  let part
+  rl.question('What day are you on?\n', function (d) {
+      rl.question('Part 1 or 2?\n', function (p) {
         day = d
-        letter = l
+        part = p
         rl.close()
       })
   })
 
   rl.on('close', () => {
-    console.log(main(day,letter))
+    console.log(main(day,part))
   })
 }
 
-const main = (day, letter) => {
-  const text = fs.readFileSync(`./day${day}/text.txt`).toString('utf-8')
+const main = (day, part) => {
+  const text = fs.readFileSync(`./day/${day}/text.txt`).toString('utf-8')
   const inputArray = text.split('\n')
 
-  const runDay = require(`./day${day}/${letter}`).default
+  const runDay = require(`./day/${day}/${part}`).default
   return 'Answer: ' + runDay(inputArray)
 }
 
