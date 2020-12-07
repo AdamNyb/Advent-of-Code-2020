@@ -1,0 +1,14 @@
+{
+  "name": "advent_of_code",
+  "version": "2020.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "koa": "^2.13.0",
+    "koa-body": "^4.2.0",
+    "prompt": "^1.0.0"
+  }
+}
