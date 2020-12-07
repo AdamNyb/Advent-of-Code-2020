@@ -1,3 +1,5 @@
+const _ = require('lodash')
+
 module.exports = {
   default: (input) => {
     // Our input is a text split by newline
@@ -5,13 +7,18 @@ module.exports = {
     // but we want to join passport-details and only separate different passports
     // e.g. [ ['byr:1971', 'eyr:2039'], ['hgt:172in'] ]
     let passportArrays = []
-    input.reduce((acc, curr) => {
+    input.reduce((acc, curr, i) => {
       if (!curr) {
         passportArrays.push(acc)
         acc = []
         return acc
       }
       acc.push(curr)
+
+      if (i === input.length - 1) {
+        passportArrays.push(acc)
+      }
+
       return acc
     }, [])
 
@@ -29,6 +36,7 @@ module.exports = {
     })
 
     const { validPassports, invalidPassports } = validatePassports(passports)
+
     return validPassports.length
   }
 }
